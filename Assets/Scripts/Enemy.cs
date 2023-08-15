@@ -23,5 +23,6 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(Random.Range(1f, 5f));
         _sprite.enabled = true;
         _collider.enabled = true;
+        transform.position = new Vector3(Random.Range(-11, 3), Random.Range(2, 6), transform.position.z);
     }
 }
