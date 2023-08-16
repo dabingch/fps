@@ -15,10 +15,10 @@ public class Enemy : MonoBehaviour
         _sprite.enabled = false;
         _collider.enabled = false;
 
-        StartCoroutine(RespwanRoutine());
+        StartCoroutine(EnemySpawnRoutine());
     }
 
-    public IEnumerator RespwanRoutine()
+    public IEnumerator EnemySpawnRoutine()
     {
         yield return new WaitForSeconds(.5f);
         _sprite.enabled = true;

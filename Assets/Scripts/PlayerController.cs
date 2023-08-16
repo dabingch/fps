@@ -13,7 +13,21 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Camera _playerCamera;
 
-    // Update is called once per frame
+    [SerializeField]
+    private int _score;
+
+    private UIManager _uiManager;
+
+    private void Start()
+    {
+        _uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
+
+        if (_uiManager is null)
+        {
+            Debug.LogError("UI Manager is null");
+        }
+    }
+
     void Update()
     {
         Enemy enemy = null;
@@ -34,8 +48,15 @@ public class PlayerController : MonoBehaviour
             if (enemy is not null)
             {
                 enemy.Kill();
+                AddScore(10);
             }
 
         }
+    }
+
+    public void AddScore(int points)
+    {
+        _score += points;
+        _uiManager.UpdateScore(_score);
     }
 }
