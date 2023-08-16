@@ -8,6 +8,12 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private bool _isGameOver;
 
+    [SerializeField]
+    private GameObject _enemyPrefab;
+
+    [SerializeField]
+    private GameObject _ak47Prefab;
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.R) && _isGameOver)
@@ -19,5 +25,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         _isGameOver = true;
+        _enemyPrefab.SetActive(false);
+        _ak47Prefab.SetActive(false);
     }
 }
